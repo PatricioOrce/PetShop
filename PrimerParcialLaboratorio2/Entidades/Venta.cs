@@ -28,7 +28,6 @@ namespace Entidades
             lastID += 1;
             this.id = lastID;
         }
-
         public Cliente Comprador
         {
             get
@@ -45,7 +44,11 @@ namespace Entidades
             get { return this.productos; }
             set { this.productos = value; }
         }
-
+        /// <summary>
+        /// Resume toda la informacion de la venta.
+        /// </summary>
+        /// <param name="productos"></param>
+        /// <returns>Devuelve la informacion de la venta.</returns>
         public StringBuilder Information(Stack<Producto> productos)
         {
             StringBuilder datos = new StringBuilder();
@@ -60,6 +63,9 @@ namespace Entidades
             }
             return datos;
         }
+        /// <summary>
+        /// Calcula las ganancias totales de la venta.
+        /// </summary>
         private void CalcularGanancias()
         {
             if (this.productos is not null)

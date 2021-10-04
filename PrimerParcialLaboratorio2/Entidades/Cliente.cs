@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entidades
+﻿namespace Entidades
 {
     public class Cliente : Persona
     {
@@ -18,8 +12,16 @@ namespace Entidades
         public double Saldo
         {
             get { return saldo; }
-            set { saldo = value; }
+            set
+            {
+                if (value > 0)
+                    saldo = value;
+            }
         }
+        /// <summary>
+        /// Muestra las capacidades del cliente.
+        /// </summary>
+        /// <returns>Devuelve una cadena con la informacion</returns>
         public new string Help()
         {
             string text = "Un Cliente unicamente puede: \n" +
@@ -28,6 +30,11 @@ namespace Entidades
              "Cuenta con un atributo extra que es Saldo\n";
             return text;
         }
+        /// <summary>
+        /// Muestra los datos de una persona.
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns>Devuelve una cadena con la informacion</returns>
         public override string Mostrar(Persona client)
         {
             Cliente auxCliente = (Cliente)client;

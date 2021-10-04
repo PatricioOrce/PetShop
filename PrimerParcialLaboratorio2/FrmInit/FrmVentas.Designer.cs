@@ -29,6 +29,7 @@ namespace FrmInit
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentas));
             this.txtClientDNI = new System.Windows.Forms.TextBox();
             this.dtgvProducts = new System.Windows.Forms.DataGridView();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +52,7 @@ namespace FrmInit
             this.btnVerify = new System.Windows.Forms.Button();
             this.btnVaciarCarrito = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCart)).BeginInit();
             this.SuspendLayout();
@@ -282,6 +284,7 @@ namespace FrmInit
             this.Controls.Add(this.dtgvCart);
             this.Controls.Add(this.dtgvProducts);
             this.Controls.Add(this.txtClientDNI);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmVentas";
             this.Text = "FrmVentas";
             this.Load += new System.EventHandler(this.FrmVentas_Load_1);
@@ -316,5 +319,6 @@ namespace FrmInit
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.Button btnVaciarCarrito;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

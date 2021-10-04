@@ -29,6 +29,7 @@ namespace FrmInit
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmABMProduct));
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -259,6 +260,7 @@ namespace FrmInit
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtNombre);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmABMProduct";
             this.Text = "FrmABMProduct";
             this.Load += new System.EventHandler(this.FrmABMProduct_Load);

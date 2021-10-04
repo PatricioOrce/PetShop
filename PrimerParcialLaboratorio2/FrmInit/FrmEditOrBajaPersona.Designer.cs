@@ -280,6 +280,7 @@ namespace FrmInit
             this.Controls.Add(this.txtSurnameInput);
             this.Controls.Add(this.txtNameInput);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEditOrBajaPersona";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEditOrBaja";

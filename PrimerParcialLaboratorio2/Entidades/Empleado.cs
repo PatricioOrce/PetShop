@@ -30,6 +30,10 @@ namespace Entidades
                 return this.contrasenia;
             }
         }
+        /// <summary>
+        /// Muestra las capacidades de un Empleado.
+        /// </summary>
+        /// <returns>Devuelve una cadena con la informacion</returns>
         public override string Help()
         {
             StringBuilder infoAyuda = new StringBuilder();
@@ -40,6 +44,11 @@ namespace Entidades
             infoAyuda.AppendLine("Permite realizar ventas y crear Clientes.");
             return infoAyuda.ToString();
         }
+        /// <summary>
+        /// Muestra los datos de el empleado.
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns>Devuelve una cadena con la informacion</returns>
         public override string Mostrar(Persona employee)
         {
             Empleado auxEmpleado = (Empleado)employee;

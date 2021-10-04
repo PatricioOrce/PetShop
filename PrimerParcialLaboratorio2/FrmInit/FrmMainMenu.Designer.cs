@@ -58,6 +58,7 @@ namespace FrmInit
             this.picBackToNormal = new System.Windows.Forms.PictureBox();
             this.picMaxScreen = new System.Windows.Forms.PictureBox();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.picAdmin = new System.Windows.Forms.PictureBox();
             this.panelLateralMain.SuspendLayout();
             this.panelListar.SuspendLayout();
             this.panelModify.SuspendLayout();
@@ -68,6 +69,7 @@ namespace FrmInit
             ((System.ComponentModel.ISupportInitialize)(this.picBackToNormal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMaxScreen)).BeginInit();
             this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdmin)).BeginInit();
             this.SuspendLayout();
             // 
             // panelLateralMain
@@ -472,14 +474,31 @@ namespace FrmInit
             this.panelTop.TabIndex = 5;
             this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
             // 
+            // picAdmin
+            // 
+            this.picAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picAdmin.Image = ((System.Drawing.Image)(resources.GetObject("picAdmin.Image")));
+            this.picAdmin.Location = new System.Drawing.Point(300, 96);
+            this.picAdmin.Name = "picAdmin";
+            this.picAdmin.Size = new System.Drawing.Size(377, 296);
+            this.picAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAdmin.TabIndex = 7;
+            this.picAdmin.TabStop = false;
+            this.picAdmin.Visible = false;
+            // 
             // FrmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(746, 449);
+            this.Controls.Add(this.picAdmin);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panelLateralMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.Name = "FrmMainMenu";
             this.Text = "FrmMainMenu";
             this.Load += new System.EventHandler(this.FrmMainMenu_Load);
@@ -493,6 +512,7 @@ namespace FrmInit
             ((System.ComponentModel.ISupportInitialize)(this.picBackToNormal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMaxScreen)).EndInit();
             this.panelTop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picAdmin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -527,5 +547,6 @@ namespace FrmInit
         private System.Windows.Forms.Button btnFacturacion;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.PictureBox picAdmin;
     }
 }

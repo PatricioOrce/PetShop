@@ -11,7 +11,6 @@ namespace Entidades
     {
         Comida, Juguete, Cuidado, Comodidad
     }
-
     public class Producto
     {
         string nombre;
@@ -47,8 +46,6 @@ namespace Entidades
             this.Tipo = tipo;
             this.cantidad = cantidad;
         }
-
-
 
         public string Nombre
         {
@@ -87,7 +84,10 @@ namespace Entidades
             }
             set
             {
-                this.precio = value;
+                if (value > 0)
+                    this.precio = value;
+                else
+                    this.precio = 1;
             }
         }
         public string Descripcion
@@ -148,8 +148,6 @@ namespace Entidades
                 }
             }
         }
-
-
         public static bool operator ==(Producto p1, Producto p2)
         {
             return (p1 is not null && p2 is not null && p1.Id == p2.Id);
@@ -158,6 +156,7 @@ namespace Entidades
         {
             return (p1 is not null && p2 is not null && p1.Id != p2.Id);
         }
+
         public static explicit operator double(Producto product)
         {
             return product.Precio;

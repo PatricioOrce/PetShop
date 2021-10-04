@@ -29,6 +29,7 @@ namespace FrmInit
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListaGeneral));
             this.listHelp = new System.Windows.Forms.ListBox();
             this.listPersonas = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
@@ -53,14 +54,15 @@ namespace FrmInit
             this.listPersonas.TabIndex = 1;
             this.listPersonas.Visible = false;
             // 
-            // ListaGeneral
+            // FrmListaGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(476, 450);
             this.Controls.Add(this.listPersonas);
             this.Controls.Add(this.listHelp);
-            this.Name = "ListaGeneral";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "FrmListaGeneral";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListaGeneral";
             this.Load += new System.EventHandler(this.ListaGeneral_Load);

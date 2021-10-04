@@ -17,8 +17,6 @@ namespace FrmInit
         Cliente cliente;
         Empleado empleado;
         Administrador admin;
-        
-
         public FrmListaGeneral(string task)
         {
             InitializeComponent();
@@ -27,10 +25,11 @@ namespace FrmInit
             empleado = new Empleado("Nameless", "Surnameless", "00000000","UserLess","PasswordLess");
             admin = new Administrador("Nameless", "Surnameless", "00000000", "UserLesss", "PasswordLesss");
         }
-
         private void ListaGeneral_Load(object sender, EventArgs e)
         {
-            if(task.Equals("Help"))
+            Sistema.ListaPersonas.AddRange(Sistema.ListaClientes);
+            Sistema.ListaPersonas.AddRange(Sistema.ListaEmpleados);
+            if (task.Equals("Help"))
             {
                 listHelp.Visible = true;
                 FillListHelp();
@@ -38,9 +37,12 @@ namespace FrmInit
             else
             {
                 listPersonas.Visible = true;
+                FillListPersonas();
             }
         }
-
+        /// <summary>
+        /// Rellena la listBox con los datos de Ayuda.
+        /// </summary>
         private void FillListHelp()
         {
             this.listHelp.Dock = DockStyle.Fill;
@@ -48,7 +50,17 @@ namespace FrmInit
             this.listHelp.Items.Add(empleado.Help()); ;
             this.listHelp.Items.Add(admin.Help()); ;
         }
-        
+        /// <summary>
+        /// Rellena la listBox con los datos de las personas.
+        /// </summary>
+        private void FillListPersonas()
+        {
+            this.listPersonas.Dock = DockStyle.Fill;
+            foreach (Persona item in Sistema.ListaPersonas)
+            {
+                this.listPersonas.Items.Add(item.Mostrar(item));
+            }
+        }
 
     }
 }

@@ -8,6 +8,11 @@ namespace Entidades
 {
     public static class Validar
     {
+        /// <summary>
+        /// Verifica que el nombre sea valido.
+        /// </summary>
+        /// <param name="nombreIngresado"></param>
+        /// <returns>Devuelve True si es valido, de lo contrario devuelve false.</returns>
         public static bool IsNombre(string nombreIngresado)
         {
             string nombre = nombreIngresado.Trim();
@@ -44,6 +49,11 @@ namespace Entidades
             }
             return true;
         }
+        /// <summary>
+        /// Verifica que el nombre de usuario sea valido.
+        /// </summary>
+        /// <param name="usernameIngresado"></param>
+        /// <returns>Devuelve True si es valido, de lo contrario devuelve false.</returns>
         public static bool IsUsername(string usernameIngresado)
         {
             string nombre = usernameIngresado.Trim();
@@ -81,6 +91,11 @@ namespace Entidades
             }
             return true;
         }
+        /// <summary>
+        /// Verifica que la clave sea valida.
+        /// </summary>
+        /// <param name="passwordIngresado"></param>
+        /// <returns>Devuelve True si es valido, de lo contrario devuelve false.</returns>
         public static bool IsPassword(string passwordIngresado)
         {
             string nombre = passwordIngresado.Trim();
@@ -118,6 +133,11 @@ namespace Entidades
             }
             return true;
         }
+        /// <summary>
+        /// Verifica que el DNI sea valido.
+        /// </summary>
+        /// <param name="dniIngresado"></param>
+        /// <returns>Devuelve True si es valido, de lo contrario devuelve false.</returns>
         public static bool IsDNI(string dniIngresado)
         {
             if(dniIngresado.Length>=5 && dniIngresado.Length <= 9)
@@ -136,6 +156,11 @@ namespace Entidades
             }
             return true;
         }
+        /// <summary>
+        /// Verifica que el saldo sea valido.
+        /// </summary>
+        /// <param name="saldo"></param>
+        /// <returns>Devuelve True si es valido, de lo contrario devuelve false.</returns>
         public static bool IsSaldo(double saldo)
         {
             if(saldo>0)
@@ -144,6 +169,11 @@ namespace Entidades
             }
             return false;
         }
+        /// <summary>
+        /// Verifica que el saldo sea valido.
+        /// </summary>
+        /// <param name="saldo"></param>
+        /// <returns>Devuelve True si es valido, de lo contrario devuelve false.</returns>
         public static bool IsSaldo(string saldo)
         {
             if (double.TryParse(saldo,out double saldoDouble))
@@ -153,6 +183,12 @@ namespace Entidades
             }
             return false;
         }
+        /// <summary>
+        /// Verifica la existencia de un empleado por su DNI.
+        /// </summary>
+        /// <param name="listaEmpleados"></param>
+        /// <param name="dni"></param>
+        /// <returns>Devuelve True si existe, de lo contrario devuelve false.</returns>
         public static bool ExistingDNI(List<Empleado> listaEmpleados, string dni)
         {
             foreach (Empleado item in listaEmpleados)
@@ -164,6 +200,12 @@ namespace Entidades
             }
             return false;
         }
+        /// <summary>
+        /// Verifica la existencia de un cliente por su DNI.
+        /// </summary>
+        /// <param name="listaClientes"></param>
+        /// <param name="dni"></param>
+        /// <returns>Devuelve True si es existe, de lo contrario devuelve false.</returns>
         public static bool ExistingDNI(List<Cliente> listaClientes, string dni)
         {
             foreach (Cliente item in listaClientes)
@@ -175,6 +217,7 @@ namespace Entidades
             }
             return false;
         }
+
 
     }
 }

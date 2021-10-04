@@ -13,6 +13,10 @@ namespace Entidades
 
         }
 
+        /// <summary>
+        /// Muestra las capacidades el administrador.
+        /// </summary>
+        /// <returns>Una cadena con la informacion.</returns>
         public override string Help()
         {
             StringBuilder infoAyuda = new StringBuilder();

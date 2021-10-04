@@ -19,7 +19,6 @@ namespace FrmInit
             InitializeComponent();
             this.tipo = tipo;
         }
-
         private void FrmListar_Load(object sender, EventArgs e)
         {
             if (tipo.Equals("Cliente"))
@@ -69,7 +68,9 @@ namespace FrmInit
                 this.lblTotalPrice.Text = $"Total Facturado: {Total(Sistema.ListaVentas)}";
             }
         }
-
+        /// <summary>
+        /// Rellenar DataGridView con informacion de la facturacion.
+        /// </summary>
         private void FillFacturacion()
         {
             int n;
@@ -87,7 +88,11 @@ namespace FrmInit
             }
 
         }
-
+        /// <summary>
+        /// Calcula el total del precio de todas las ventas.
+        /// </summary>
+        /// <param name="ventas"></param>
+        /// <returns>Devuelve ese total en caso de ser valido, de lo contrario devuelve 0.</returns>
         private double Total(List<Venta> ventas)
         {
             double total = 0;

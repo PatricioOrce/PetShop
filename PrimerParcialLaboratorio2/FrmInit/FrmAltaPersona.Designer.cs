@@ -173,6 +173,7 @@ namespace FrmInit
             this.Controls.Add(this.txtNameInput);
             this.Controls.Add(this.lblAltaPersonaText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAltaPersona";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAltaPersona";

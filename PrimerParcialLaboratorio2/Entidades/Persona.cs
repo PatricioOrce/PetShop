@@ -11,14 +11,12 @@ namespace Entidades
         private string nombre;
         string apellido;
         string dni;
-        
         public Persona(string nombre, string apellido, string dni)
         {
             this.nombre = nombre;
             this.apellido = apellido;
             this.dni = dni;
         }
-
         public string Nombre
         {
             get
@@ -27,7 +25,10 @@ namespace Entidades
             }
             set
             {
-                this.nombre = value;
+                if (!string.IsNullOrWhiteSpace(value))
+                    this.nombre = value;
+                else
+                    this.nombre = " ";
             }
         }
         public string Apellido
@@ -38,7 +39,10 @@ namespace Entidades
             }
             set
             {
-                this.apellido = value;
+                if (!string.IsNullOrWhiteSpace(value))
+                    this.apellido = value;
+                else
+                    this.apellido = " ";
             }
         }
         public string DNI
@@ -52,8 +56,16 @@ namespace Entidades
                 this.dni = value;
             }
         }
-
+        /// <summary>
+        /// Metodo abstracto para mostrar datos de personas.
+        /// </summary>
+        /// <param name="persona"></param>
+        /// <returns>Devuelve una cadena con la informacion.</returns>
         public abstract string Mostrar(Persona persona);
+        /// <summary>
+        /// Muestra las capacidades de una persona.
+        /// </summary>
+        /// <returns>Devuelve una cadena con la informacion.</returns>
         public virtual string Help()
         {
             StringBuilder infoAyuda = new StringBuilder();

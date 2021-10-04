@@ -16,6 +16,9 @@ namespace FrmInit
             FIllDataGrid();
         }
 
+        /// <summary>
+        /// Rellena la informacion del DataGridView.
+        /// </summary>
         private void FIllDataGrid()
         {
             int n;

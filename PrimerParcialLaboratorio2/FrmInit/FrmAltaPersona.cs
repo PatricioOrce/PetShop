@@ -39,6 +39,9 @@ namespace FrmInit
             }
 
         }
+        /// <summary>
+        /// Maneja la visibilidad del formulario y sus elementos en relacion a los datos del cliente.
+        /// </summary>
         private void AddClientView()
         {
             this.lblAltaPersonaText.Text = $"Alta {task}";
@@ -47,12 +50,19 @@ namespace FrmInit
             this.txtUserInput.Visible = false;
             this.txtPassInput.Visible = false;
         }
+        /// <summary>
+        /// Maneja la visibilidad del formulario y sus elementos en relacion a los datos del cliente.
+        /// </summary>
         private void AddEmployeeView()
         {
             this.lblAltaPersonaText.Text = $"Alta {task}";
             this.txtUserInput.Visible = true;
             this.txtPassInput.Visible = true;
         }
+        /// <summary>
+        /// Verifica que los datos ingresados en los textbox sean validos.
+        /// </summary>
+        /// <returns>Devuelve true en caso de ser validos, de lo contrario devuelve false.</returns>
         private bool VerifyPersonInfo()
         {
             int fullFields = 0;
@@ -89,6 +99,10 @@ namespace FrmInit
             }
             return false;
         }
+        /// <summary>
+        /// Verifica que los datos ingresados en los textbox sean validos.
+        /// </summary>
+        /// <returns>Devuelve true en caso de ser validados, de lo contrario devuelve false.</returns>
         private bool VerifyAccountInfo()
         {
             int fullFields = 0;
@@ -117,6 +131,9 @@ namespace FrmInit
             }
             return false;
         }
+        /// <summary>
+        /// Realiza el alta de un empleado en caso de que se verifique.
+        /// </summary>
         private void AddEmpleado()
         {
             epErrores.Clear();
@@ -131,6 +148,9 @@ namespace FrmInit
                 this.Close();
             }
         }
+        /// <summary>
+        /// Realiza el alta de un admin en caso de que los datos sean correctos.
+        /// </summary>
         private void AddAdmin()
         {
             epErrores.Clear();
@@ -145,6 +165,9 @@ namespace FrmInit
                 this.Close();
             }
         }
+        /// <summary>
+        /// Realiza el alta de un cliente en caso de que los datos sean correctos.
+        /// </summary>
         private void AddClient()
         {
             bool flagSalary = false; ;
@@ -165,7 +188,6 @@ namespace FrmInit
                 this.Close();
             }
         }
-
         private void btnCrear_Click_1(object sender, EventArgs e)
         {
             switch (task)
@@ -183,7 +205,6 @@ namespace FrmInit
                     break;
             }
         }
-
         private void btnCancelCrear_Click_1(object sender, EventArgs e)
         {
             this.Close();

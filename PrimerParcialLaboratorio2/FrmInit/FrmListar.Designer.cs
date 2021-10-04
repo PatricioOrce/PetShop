@@ -29,6 +29,7 @@ namespace FrmInit
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListar));
             this.dtgvListPersonas = new System.Windows.Forms.DataGridView();
             this.NameList = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApellidoList = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -201,6 +202,7 @@ namespace FrmInit
             this.Controls.Add(this.dtgvFacturacion);
             this.Controls.Add(this.dtgvListProducts);
             this.Controls.Add(this.dtgvListPersonas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmListar";
             this.Text = "FrmListar";
             this.Load += new System.EventHandler(this.FrmListar_Load);

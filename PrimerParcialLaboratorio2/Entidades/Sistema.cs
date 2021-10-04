@@ -9,7 +9,7 @@ namespace Entidades
         private static List<Cliente> listaClientes;
         private static List<Producto> listaProductos;
         private static List<Venta> listaVentas;
-        //public static List<Empleado> listaEmpleados
+        private static List<Persona> listaPersonas;
 
         static Sistema()
         {
@@ -53,8 +53,18 @@ namespace Entidades
                 new Venta(client2, stackProd),
                 new Venta(client3, stackProd)
             };
+            listaPersonas = new List<Persona>();
         }
 
+        public static List<Persona> ListaPersonas
+        {
+            get { return listaPersonas; }
+            set
+            {
+                if (value is not null)
+                    listaPersonas = value;
+            }
+        }
         public static List<Empleado> ListaEmpleados
         {
             get { return listaEmpleados; }
@@ -64,7 +74,6 @@ namespace Entidades
                     listaEmpleados = value;
             }
         }
-
         public static List<Cliente> ListaClientes
         {
             get { return listaClientes; }
@@ -74,7 +83,6 @@ namespace Entidades
                     listaClientes = value;
             }
         }
-
         public static List<Producto> ListaProductos
         {
             get { return listaProductos; }
@@ -94,6 +102,12 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Busca un empleado por su DNI.
+        /// </summary>
+        /// <param name="lista"></param>
+        /// <param name="dni"></param>
+        /// <returns>Devuelve al empleado en caso de encontrarlo, de lo contrario devuelve null</returns>
         public static Empleado FindByDNI(List<Empleado> lista, string dni)
         {
             if (!(lista is null && dni is null))
@@ -108,7 +122,12 @@ namespace Entidades
             }
             return null;
         }
-
+        /// <summary>
+        /// Busca un cliente por su DNI.
+        /// </summary>
+        /// <param name="lista"></param>
+        /// <param name="dni"></param>
+        /// <returns>Devuelve al cliente en caso de encontrarlo, de lo contrario devuelve null</returns>
         public static Cliente FindByDNI(List<Cliente> lista, string dni)
         {
             if (!(lista is null && dni is null))
@@ -123,7 +142,12 @@ namespace Entidades
             }
             return null;
         }
-
+        /// <summary>
+        /// Busca un producto por su ID.
+        /// </summary>
+        /// <param name="listaProductos"></param>
+        /// <param name="id"></param>
+        /// <returns>Devuelve el producto en caso de encontrarlo, de lo contrario devuelve null</returns>
         public static Producto FindProductByID(List<Producto> listaProductos, int id)
         {
             if (!(listaProductos is null))

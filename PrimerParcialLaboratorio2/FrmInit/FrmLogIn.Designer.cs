@@ -155,6 +155,7 @@ namespace FrmInit
             this.Controls.Add(this.btnLogInAsEmp);
             this.Controls.Add(this.btnLogIn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLogIn";
             this.Opacity = 0.99D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -38,6 +38,10 @@ namespace FrmInit
             }
 
         }
+        /// <summary>
+        /// Edita los datos del empleado en caso de que sean validos.
+        /// </summary>
+        /// <param name="dni"></param>
         private void EditEmployee(string dni)
         {
             this.lblError.Text = " ";
@@ -104,6 +108,10 @@ namespace FrmInit
 
             }
         }
+        /// <summary>
+        /// Edita los datos del Administrador en caso de que sean validos.
+        /// </summary>
+        /// <param name="dni"></param>
         private void EditAdmin(string dni)
         {
             this.lblError.Text = " ";
@@ -170,6 +178,10 @@ namespace FrmInit
 
             }
         }
+        /// <summary>
+        /// Edita los datos del cliente en caso de que sean validos.
+        /// </summary>
+        /// <param name="dni"></param>
         private void EditClient(string dni)
         {
             this.lblError.Text = " ";
@@ -241,6 +253,10 @@ namespace FrmInit
 
             }
         }
+        /// <summary>
+        /// Elimina al empleado mediante su id, en caso de existir.
+        /// </summary>
+        /// <param name="dni"></param>
         private void DeleteEmployee(string dni)
         {
             Empleado auxEmpleado;
@@ -265,6 +281,10 @@ namespace FrmInit
                 }
             }
         }
+        /// <summary>
+        /// Elimina al cliente mediante su id, en caso de existir.
+        /// </summary>
+        /// <param name="dni"></param>
         private void DeleteClient(string dni)
         {
             Cliente auxCliente;
@@ -289,6 +309,9 @@ namespace FrmInit
                 }
             }
         }
+        /// <summary>
+        /// Rellena el DataGridView con los datos de los empleados
+        /// </summary>
         private void FillEmployeeDataGrid()
         {
             foreach (var user in Sistema.ListaEmpleados)
@@ -311,6 +334,9 @@ namespace FrmInit
 
             }
         }
+        /// <summary>
+        /// Rellena el DataGridView con los datos de los clientes.
+        /// </summary>
         private void FillClientDataGrid()
         {
             foreach (var user in Sistema.ListaClientes)

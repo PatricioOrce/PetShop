@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,10 +23,13 @@ namespace FrmInit
             InitProductDataGrid();
             carrito = new Stack<Producto>();
         }
-        private void FrmVentas_Load(object sender, EventArgs e)
+        private void FrmVentas_Load_1(object sender, EventArgs e)
         {
             this.total = 0;
         }
+        /// <summary>
+        /// Rellena los datos del DataGridView con los productos.
+        /// </summary>
         private void InitProductDataGrid()
         {
             foreach (Producto product in Sistema.ListaProductos)
@@ -39,6 +43,11 @@ namespace FrmInit
                 }
             }
         }
+        /// <summary>
+        /// Calcula el total del precio de los productos seleccionados en un stack.
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns>Devuelve el precio total de la compra.</returns>
         private static double Total(Stack<Producto> product)
         {
             double auxTotal = 0;
@@ -48,6 +57,10 @@ namespace FrmInit
             }
             return auxTotal;
         }
+        /// <summary>
+        /// Se encarga de restar el stock de los productos seleccionados en la compra.
+        /// </summary>
+        /// <returns>Devuelve el producto en caso de salir todo bien, de lo contrario retorna null.</returns>
         private Producto VerifyStock()
         {
             foreach (Producto productos in Sistema.ListaProductos)
@@ -68,6 +81,32 @@ namespace FrmInit
                 }
             }
             return null;
+        }
+        /// <summary>
+        /// Genera un ticket de compra como archivo txt.
+        /// </summary>
+        /// <param name="venta"></param>
+        private void GenerateTicker(Venta venta)
+        {
+            if(this.saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if(File.Exists(saveFileDialog1.FileName))
+                {
+                    string txt = saveFileDialog1.FileName;
+                    StreamWriter ticket = File.CreateText(txt);
+                    ticket.Write(venta.Information(carrito));
+                    ticket.Flush();
+                    ticket.Close();
+                }
+                else
+                {
+                    string txt = saveFileDialog1.FileName;
+                    StreamWriter ticket = File.CreateText(txt);
+                    ticket.Write(venta.Information(carrito));
+                    ticket.Flush();
+                    ticket.Close();
+                }
+            }
         }
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
@@ -135,6 +174,12 @@ namespace FrmInit
                                 auxVenta = new Venta(auxCliente, this.carrito);
                                 auxCliente.Saldo = auxCliente.Saldo - Total(this.carrito);
                                 Sistema.ListaVentas.Add(auxVenta);
+                                if (MessageBox.Show("Quiere Generar un ticket de compra?", "Ticket", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    GenerateTicker(auxVenta);
+                                }
+                                //Llegue al beep nomas porque en 30 minutos tengo que entregar y me falta comentar :/
+                                Console.Beep();
                                 this.Close();
                             }
                         }
@@ -194,11 +239,6 @@ namespace FrmInit
             carrito.Clear();
             dtgvCart.Rows.Clear();
             this.lblTotal.Text = $"Total:";
-        }
-
-        private void FrmVentas_Load_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

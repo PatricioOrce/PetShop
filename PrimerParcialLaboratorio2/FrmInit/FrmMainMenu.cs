@@ -50,17 +50,43 @@ namespace FrmInit
             if (!rango)
             { 
                 EmployeeView();
-                this.BackColor = Color.AliceBlue;
+                foreach (Control control in this.Controls)
+                {
+                    MdiClient client = control as MdiClient;
+                    if (!(client == null))
+                    {
+                        client.BackColor = Color.White;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                this.picAdmin.Visible = true;
+                foreach (Control control in this.Controls)
+                {
+                    MdiClient client = control as MdiClient;
+                    if (!(client == null))
+                    {
+                        client.BackColor = Color.Black;
+                        break;
+                    }
+                }
             }
         }
 
+        /// <summary>
+        /// Cierra la Sesion
+        /// </summary>
         private void LogOut()
         {
             logOut = new FrmLogIn();
             logOut.Show();
             this.Close();
         }
-
+        /// <summary>
+        /// Modifica la visibilidad del form y de sus elementos en relacion al rol ingresado.
+        /// </summary>
         private void EmployeeView()
         {
             this.btnEditOrDelete.Enabled = false;
@@ -72,7 +98,9 @@ namespace FrmInit
             this.btnNewEmployee.Enabled = false;
             this.btnNewProduct.Enabled = false;
         }
-
+        /// <summary>
+        /// Esconde los paneles en caso de estar abiertos.
+        /// </summary>
         private void hidePanels()
         {
             if (this.panelAltas.Visible)
@@ -83,7 +111,10 @@ namespace FrmInit
                 this.panelListar.Visible = false;
 
         }
-
+        /// <summary>
+        /// Muestra el Panel ingresado ocultando los demas en caso de estar abiertos.
+        /// </summary>
+        /// <param name="panel"></param>
         private void showPanels(Panel panel)
         {
             if (panel.Visible == false)
@@ -205,7 +236,8 @@ namespace FrmInit
 
         private void btnListPersonas_Click(object sender, EventArgs e)
         {
-
+            listaGeneral = new FrmListaGeneral("Personas");
+            listaGeneral.Show();
         }
 
         private void btnModifyClient_Click(object sender, EventArgs e)
@@ -224,6 +256,7 @@ namespace FrmInit
         {
 
         }
+
         private void btnNewProduct_Click(object sender, EventArgs e)
         {
             formularioProds = new FrmABMProduct();
